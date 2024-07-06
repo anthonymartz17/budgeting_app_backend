@@ -1,0 +1,42 @@
+module.exports = [
+	{
+		id: 1,
+		item_name: "Salary",
+		amount: 5000,
+		date: "2024-07-01",
+		from: "Employer",
+		category: "Income",
+	},
+	{
+		id: 2,
+		item_name: "Groceries",
+		amount: 150,
+		date: "2024-07-02",
+		from: "Grocery Store",
+		category: "Food",
+	},
+	{
+		id: 3,
+		item_name: "Rent",
+		amount: 1200,
+		date: "2024-07-03",
+		from: "Landlord",
+		category: "Housing",
+	},
+	{
+		id: 4,
+		item_name: "Cat Food",
+		amount: 40,
+		date: "2024-07-04",
+		from: "Pet Store",
+		category: "Pets",
+	},
+	{
+		id: 5,
+		item_name: "Savings Deposit",
+		amount: 500,
+		date: "2024-07-05",
+		from: "Bank",
+		category: "Savings",
+	},
+];
