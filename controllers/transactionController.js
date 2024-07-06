@@ -3,6 +3,7 @@ const express = require("express");
 const transactionController = express.Router();
 const transactionModel = require("../models/transactionModel");
 
+//index
 transactionController.get("/", (req, res) => {
 	res.status(200).json(transactionModel);
 });
@@ -11,7 +12,7 @@ transactionController.get("/", (req, res) => {
 transactionController.get("/:id", (req, res) => {
 	const { id } = req.params;
 	const transaction = transactionModel.find((tran) => tran.id === Number(id));
-	console.log(nanoid(4), "el id");
+	// console.log(nanoid(4), "el id");
 	if (transaction) {
 		res.status(200).json(transaction);
 	} else {
@@ -30,12 +31,25 @@ transactionController.post("/", (req, res) => {
 
 //update
 transactionController.put("/:id", (req, res) => {
-  const {id} =  req.params
+	const { id } = req.params;
 	const idx = transactionModel.findIndex((tranx) => tranx.id === Number(id));
 
 	if (idx !== -1) {
 		transactionModel[idx] = { ...transactionModel[idx], ...req.body };
 		res.status(200).json(transactionModel[idx]);
+	} else {
+		res.status(404).json({ error: `Transaction with id:${id} not found` });
+	}
+});
+
+//delete
+transactionController.delete("/:id", (req, res) => {
+	const { id } = req.params;
+	const idx = transactionModel.findIndex((tranx) => tranx.id === Number(id));
+
+	if (idx !== -1) {
+		const removedTranx = transactionModel.splice(idx, 1)[0];
+		res.status(200).json(removedTranx);
 	} else {
 		res.status(404).json({ error: `Transaction with id:${id} not found` });
 	}

@@ -10,4 +10,10 @@ app.get("/", (req, res) => {
 	res.send("Welcome to bugeting app");
 });
 
+app.get("*", (req, res) => {
+	const error = new Error("Page not found");
+	error.status = 404;
+	res.status(404).json({ msg: error.message, status: error.status });
+});
+
 module.exports = app;
