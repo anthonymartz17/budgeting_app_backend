@@ -1,4 +1,5 @@
-// const { nanoid } = require("nanoid");
+const { nanoid } = require("nanoid");
+
 const express = require("express");
 const transactionController = express.Router();
 const transactionModel = require("../models/transactionModel");
@@ -11,8 +12,7 @@ transactionController.get("/", (req, res) => {
 //show
 transactionController.get("/:id", (req, res) => {
 	const { id } = req.params;
-	const transaction = transactionModel.find((tran) => tran.id === Number(id));
-	// console.log(nanoid(4), "el id");
+	const transaction = transactionModel.find((tran) => tran.id === id);
 	if (transaction) {
 		res.status(200).json(transaction);
 	} else {
@@ -24,7 +24,7 @@ transactionController.get("/:id", (req, res) => {
 
 transactionController.post("/", (req, res) => {
 	// console.log(nanoid(4))
-	transactionModel.push({ id: transactionModel.length + 1, ...req.body });
+	transactionModel.push({ id: nanoid(), ...req.body });
 	const addedTranx = transactionModel[transactionModel.length - 1];
 	res.status(200).json(addedTranx);
 });
@@ -32,7 +32,7 @@ transactionController.post("/", (req, res) => {
 //update
 transactionController.put("/:id", (req, res) => {
 	const { id } = req.params;
-	const idx = transactionModel.findIndex((tranx) => tranx.id === Number(id));
+	const idx = transactionModel.findIndex((tranx) => tranx.id === id);
 
 	if (idx !== -1) {
 		transactionModel[idx] = { ...transactionModel[idx], ...req.body };
@@ -45,7 +45,7 @@ transactionController.put("/:id", (req, res) => {
 //delete
 transactionController.delete("/:id", (req, res) => {
 	const { id } = req.params;
-	const idx = transactionModel.findIndex((tranx) => tranx.id === Number(id));
+	const idx = transactionModel.findIndex((tranx) => tranx.id === id);
 
 	if (idx !== -1) {
 		const removedTranx = transactionModel.splice(idx, 1)[0];
