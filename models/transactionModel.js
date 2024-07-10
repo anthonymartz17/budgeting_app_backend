@@ -6,7 +6,7 @@ module.exports = [
 		date: "2024-07-01",
 		merchant: "Employer",
 		category: "Income",
-		isCredit: true,
+		isDeposit: true,
 	},
 	{
 		id: "zRB4aGkGQItzXsNsSlMaf",
@@ -15,7 +15,7 @@ module.exports = [
 		date: "2024-07-02",
 		merchant: "Grocery Store",
 		category: "Food",
-		isCredit: false,
+		isDeposit: false,
 	},
 	{
 		id: "3VfPSnNKpXvI9X_PbWZ0p",
@@ -24,7 +24,7 @@ module.exports = [
 		date: "2024-07-03",
 		merchant: "Landlord",
 		category: "Housing",
-		isCredit: true,
+		isDeposit: true,
 	},
 	{
 		id: "2VfPSnNepXvI9X_PbWf0p",
@@ -33,7 +33,7 @@ module.exports = [
 		date: "2024-07-04",
 		merchant: "Pet Store",
 		category: "Pets",
-		isCredit: false,
+		isDeposit: false,
 	},
 	{
 		id: "5VfPSnNKpXvI9X_PbWZ0p",
@@ -42,6 +42,6 @@ module.exports = [
 		date: "2024-07-05",
 		merchant: "Bank",
 		category: "Savings",
-		isCredit: false,
+		isDeposit: false,
 	},
 ];
